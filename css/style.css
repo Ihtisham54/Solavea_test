@@ -1,0 +1,1050 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Colors - White + Blue Theme */
+  --color-primary: #ffffff;
+  /* Main Background */
+  --color-primary-light: #f3f4f6;
+  /* Section Alternate Background */
+  --color-accent: #4f6bff;
+  /* Professional Blue */
+  --color-text-main: #374151;
+  /* Body text */
+  --color-text-secondary: #4b5563;
+  /* Secondary text */
+  --color-heading: #111827;
+  /* Headings */
+  --color-white: #ffffff;
+  --color-dark: #1f2937;
+  /* Used for contrast elements */
+  --color-background: #ffffff;
+  --color-card: #ffffff;
+  /* Card Background */
+  --color-border: #e5e7eb;
+  /* Subtle Border Color */
+  --color-accent-hover: #7a5cff;
+  /* Accent Hover State */
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Shadows */
+  --shadow-card:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-hover:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* Optimized Page Animations */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animation Variants */
+.fade-up {
+  transform: translateY(20px);
+}
+
+.fade-in {
+  transform: scale(0.98);
+}
+
+/* Active State */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Reduced Motion - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ============================================================
+   UTILITY / CONTAINER
+   ============================================================ */
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f6bff 0%, #7a5cff 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(79, 107, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 107, 255, 0.6);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION SPACING  — 80–100px desktop, 60px mobile
+   ============================================================ */
+.section {
+  padding: 5rem 0; /* ~80px */
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+  position: fixed;
+  top: 16px;
+  left: 24px;
+  right: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 12px 32px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: flex;
+  align-items: center;
+}
+
+header .container {
+  padding: 0;
+  width: 100%;
+}
+
+header.header-scrolled {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 18, 32, 0.85) 0%,
+    rgba(15, 28, 61, 0.85) 100%
+  );
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+header.header-scrolled .nav-links a {
+  color: #ffffff;
+}
+
+header.header-scrolled .logo img {
+  filter: brightness(0) invert(1);
+}
+
+header.header-scrolled .nav-links a:hover,
+header.header-scrolled .nav-links a.active {
+  color: var(--color-accent);
+}
+
+header.header-scrolled .hamburger-btn span {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo — left padding 10px, vertically centered */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 2rem;
+  padding-left: 10px;
+}
+
+.logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: normal;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-accent);
+}
+
+/* Ensure button aligns perfectly with nav items */
+nav .btn {
+  margin-left: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 32px;
+  }
+}
+
+/* ============================================================
+   HERO — dark gradient overlay (40-60%) for better contrast
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(
+    circle at 50% 20%,
+    #eaf2ff 0%,
+    #d7e6ff 35%,
+    #c4d9ff 65%,
+    #f8fbff 100%
+  );
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(120, 160, 255, 0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 50rem;
+}
+
+.hero-tagline {
+  color: var(--color-accent); /* blue for visibility on dark */
+  font-family: monospace;
+  margin-bottom: var(--spacing-md);
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-heading);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  max-width: 37.5rem;
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+}
+
+.hero-btns {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img img {
+  border-radius: 8px;
+  box-shadow: var(--shadow-hover);
+  transition: var(--transition);
+}
+
+.about-img:hover img {
+  transform: translateY(-5px);
+}
+
+/* ============================================================
+   FEATURE CARDS — padding / line-height / text spacing
+   ============================================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.feature-item {
+  padding: 28px 32px;
+  background: linear-gradient(135deg, #dbe7ff 0%, #c9d8ff 100%);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  transition: var(--transition);
+}
+
+.feature-item:nth-child(even) {
+  background: linear-gradient(135deg, #ebdfff 0%, #d8c4ff 100%);
+}
+
+.feature-item p {
+  line-height: 1.7;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+/* Industries */
+.industries-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.industry-pill {
+  padding: 0.8rem 1.5rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
+}
+
+.industry-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Process */
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.process-step {
+  flex: 1;
+  min-width: min(100%, 12.5rem);
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  /* Subtle number background for dark theme */
+  margin-bottom: -2rem;
+  z-index: 0;
+  position: relative;
+  line-height: 1;
+}
+
+.step-title {
+  color: var(--color-heading);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  z-index: 1;
+  position: relative;
+  padding-top: 1rem;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  background:
+    linear-gradient(rgba(243, 244, 246, 0.92), rgba(243, 244, 246, 0.92)),
+    url("../images/why_us.png") no-repeat center center/cover;
+}
+
+.cta-container {
+  max-width: 37.5rem;
+  margin: 0 auto;
+}
+
+/* Removed specific CTA button overrides to retain global primary pill gradient */
+
+/* ============================================================
+   FOOTER — clean, left-aligned, proper spacing
+   ============================================================ */
+footer {
+  background-color: var(--color-primary-light);
+  padding: 4rem 0 2rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Footer top row: logo + tagline | contact | links */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Footer brand block */
+.footer-brand {
+  text-align: left;
+}
+
+.footer-brand img {
+  height: 32px;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  max-width: 18.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Footer contact */
+.footer-contact {
+  text-align: left;
+}
+
+.footer-contact h4 {
+  color: var(--color-heading);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.contact-item:hover {
+  color: var(--color-accent);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* Footer links — vertical list */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  text-align: left;
+}
+
+.footer-links h4 {
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-links a {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+/* Footer bottom bar */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Checklist Grid */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+  color: var(--color-text-main);
+}
+
+.checklist-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+  /* Blue for dark background visibility */
+  flex-shrink: 0;
+}
+
+.checklist-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* ============================================================
+   HAMBURGER MENU BUTTON (hidden on desktop, visible on mobile)
+   ============================================================ */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1100;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-heading);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Section spacing — 60px mobile */
+  .section {
+    padding: 3.75rem 0;
+  }
+
+  /* --- Hamburger visible --- */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* --- Mobile Nav Drawer --- */
+  .nav-links {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(
+      135deg,
+      rgba(11, 18, 32, 0.96) 0%,
+      rgba(15, 28, 61, 0.96) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    gap: 0;
+    z-index: 1050;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    font-size: 1.15rem;
+    padding: 18px 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: none;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links a.btn {
+    display: none !important;
+  }
+
+  /* Hide the desktop CTA button in the nav bar on mobile */
+  nav > .btn {
+    display: none;
+  }
+
+  /* --- Header --- */
+  header {
+    padding: 12px 24px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  /* Push nav content to edges */
+  nav {
+    padding: 0;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* --- About Grid --- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* --- Features Grid --- */
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .feature-item {
+    padding: 1.75rem 1.5rem; /* min 24px (1.5rem) sides */
+  }
+
+  /* --- Process Steps --- */
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .process-step {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  /* --- Industries List (pills) --- */
+  .industries-list {
+    gap: 0.75rem;
+  }
+
+  .industry-pill {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* --- Checklist Grid --- */
+  .checklist-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  /* --- Inline flex layouts used heavily in HTML via style attrs --- */
+  /* Override inline flex containers to stack on mobile */
+
+  /* CTA section */
+  .cta-container {
+    padding: 0 1rem;
+  }
+
+  /* Buttons — full width on mobile */
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* But inline-flex buttons (with icons) need to center properly */
+  .btn[style*="inline-flex"],
+  a.btn[style*="inline-flex"] {
+    display: inline-flex !important;
+    width: auto;
+  }
+
+  /* --- Typography scaling --- */
+  h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Container responsive padding — minimum 24px (1.5rem) */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  /* --- Image handling --- */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Override inline-style min-widths on flex children */
+  [style*="min-width: min(100%, 18.75rem)"],
+  [style*="min-width: min(100%, 18.75rem)"] {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  /* Override flex containers to stack on mobile */
+  [style*="display: flex"][style*="gap: 4rem"],
+  [style*="display: flex"][style*="gap:4rem"],
+  [style*="display: flex"][style*="gap: 2rem"][style*="align-items: flex-start"],
+  [style*="display: flex"][style*="gap:2rem"][style*="align-items: flex-start"] {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Override row-reverse for service items on mobile to show content first */
+  [style*="flex-direction: row-reverse"] {
+    flex-direction: column !important;
+  }
+
+  /* Fix body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL PHONES (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Feature items tighter */
+  .feature-item {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+  }
+
+  .step-number {
+    font-size: 3rem;
+  }
+
+  /* Footer links even tighter */
+  .footer-links {
+    gap: 0.5rem;
+  }
+
+  footer {
+    padding: 2rem 0 1.25rem;
+  }
+
+  /* CTA section breathing room */
+  .cta-section {
+    padding: 3rem 0 !important;
+  }
+
+  .cta-container {
+    padding: 0 0.75rem;
+  }
+
+  /* Industry pills wrap better */
+  .industry-pill {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Buttons padding */
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* Notice card (submit-resume page) */
+  .notice-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Checklist items */
+  .checklist-item {
+    font-size: 0.95rem;
+  }
+
+  /* Nav links font in mobile menu */
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 0.85rem 1.5rem;
+  }
+}
